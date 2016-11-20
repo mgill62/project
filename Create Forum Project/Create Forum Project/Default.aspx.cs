@@ -14,6 +14,7 @@ namespace Create_Forum_Project
     public partial class Default : System.Web.UI.Page
     {
         string username;
+        int ID;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace Create_Forum_Project
             else
             {
                 username = Session["nam"].ToString();
+                ID = Convert.ToInt32(Session["ID"]);
                 divwelcome.Visible = true;
                 divlogout.Visible = true;
                 div_log_reg_ribbon.Visible = false;
@@ -40,7 +42,7 @@ namespace Create_Forum_Project
         public void LoadPost()
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["FRCon"].ConnectionString);
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Forum_Post", con);
+            SqlDataAdapter da = new SqlDataAdapter("select f.postid, r.username, f.posttitle, f.postmessage, f.posteddate from forum_post f INNER JOIN Forum_Registration r ON f.usernameID = r.usernameID ORDER BY f.postid", con);
             con.Open();
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -82,6 +84,11 @@ namespace Create_Forum_Project
                     div_post_display_panel.Controls.Add(divpost);
                 }
             }
+        }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Profile.aspx?id=" + ID);
         }
     }
 }

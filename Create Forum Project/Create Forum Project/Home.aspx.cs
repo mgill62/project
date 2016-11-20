@@ -14,25 +14,27 @@ namespace Create_Forum_Project
     public partial class Home : System.Web.UI.Page
     {
         string user1;
+        int ID;
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["FRCon"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
+            //if(!IsPostBack)
+            //{
                 user1 = Session["nam"].ToString();
+                ID = Convert.ToInt32(Session["ID"].ToString());
                 welcome.InnerHtml = user1.ToString();
                 div_dashboard_box.Visible = true;
                 LoadPost();
-            }
-            else
-            {
-                Response.Redirect("~/Default.aspx");
-            }
+            //}
+            //else
+            //{
+            //    Response.Redirect("~/Default.aspx");
+            //}
         }
         
         public void LoadPost()
-        {            
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Forum_Post where username='" + user1 + "'", con);
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select f.postid, (select username from Forum_Registration where usernameID ='" + ID + "') as username, f.posttitle, f.postmessage, f.posteddate from forum_post f where usernameID =" +ID, con);
             con.Open();
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -80,6 +82,11 @@ namespace Create_Forum_Project
         public void ReadArticles1(string id)
         {
             Response.Write(id);
+        }
+
+        protected void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Profile.aspx?id=" + ID);
         }
     }
 }

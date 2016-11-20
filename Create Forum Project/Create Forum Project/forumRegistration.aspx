@@ -28,16 +28,6 @@
         </tr>
           <tr>
         <td>
-         Full Name 
-        </td>
-        <td>
-            <asp:TextBox ID="txtfullname" CssClass="textbox" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                ControlToValidate="txtfullname">Enter Full Name</asp:RequiredFieldValidator>
-        </td>
-        </tr>
-          <tr>
-        <td>
          Password 
         </td>
         <td>

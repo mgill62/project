@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
     <div class="divlogo">Ask</div>
     <div class="div_header">
-     Welcome : <label id="lblwelcom" runat="server"/>     
+     Welcome : <label id="lblwelcom" runat="server"/>&nbsp;&nbsp;&nbsp;  <asp:Button ID ="btnProfile" runat="server" OnClick="btnProfile_Click" Text="Your Profile"  /> 
     </div>
     <div class="div_logout"><a href="forumLogin.aspx">Logout</a></div>
       <div id="div_dashboard_box" class="div_dashboard" runat="server" visible="false">

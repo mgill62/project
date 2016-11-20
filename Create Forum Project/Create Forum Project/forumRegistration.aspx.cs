@@ -22,7 +22,7 @@ namespace Create_Forum_Project
         protected void Btn_Registration_Click(object sender, EventArgs e)
         {
             
-            sqlquery = "Insert into Forum_Registration values ('" + txtusername.Text + "','" + txtpassword.Text + "', '" + txtfullname.Text + "', '" + rbl_gender.SelectedItem.Text + "' , '" + txtdob.Text + "', '" + txtemailid.Text + "')";
+            sqlquery = "Insert into Forum_Registration values ('" + txtusername.Text + "','" + txtpassword.Text + "', '" + rbl_gender.SelectedItem.Text + "' , '" + txtdob.Text + "', '" + txtemailid.Text + "')";
             cmd = new SqlCommand(sqlquery, con);
             con.Open();
             cmd.ExecuteNonQuery();

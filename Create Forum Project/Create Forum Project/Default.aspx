@@ -12,8 +12,8 @@
     <form id="form1" runat="server">
     <div>
     <div class="divlogo">Ask</div>
-     <div id="divwelcome" runat="server" class="div_header" visible="false">
-     Welcome : <label id="lblwelcom" runat="server"/>     
+     <div id="divwelcome" runat="server" class="div_header" visible="false" >
+     Welcome : <label id="lblwelcom" runat="server"/> &nbsp;&nbsp;&nbsp;  <asp:Button ID ="btnProfile" runat="server" OnClick="btnProfile_Click" Text="Your Profile"  />     
     </div>
     <div id="divlogout" runat="server" class="div_logout" visible="false"><a href="forumLogin.aspx">Logout</a></div>
     <div class="div_log_reg_ribbon" id="div_log_reg_ribbon" runat="server">

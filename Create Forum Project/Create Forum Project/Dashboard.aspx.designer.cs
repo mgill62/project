@@ -31,6 +31,15 @@ namespace Create_Forum_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblwelcom;
         
         /// <summary>
+        /// btnProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProfile;
+        
+        /// <summary>
         /// div_dashboard_box control.
         /// </summary>
         /// <remarks>
